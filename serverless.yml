@@ -8,8 +8,6 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  region: eu-west-1
-  profile: codingly
   memorySize: 128
   environment:
     AUTH0_CLIENT_ID: ${file(secrets.yml):AUTH0_CLIENT_ID}
