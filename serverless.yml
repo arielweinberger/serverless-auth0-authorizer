@@ -58,7 +58,3 @@ resources:
         RestApiId:
           Ref: 'ApiGatewayRestApi'
         StatusCode: '401'
-
-custom:
-  bundle:
-    linting: false

@@ -32,7 +32,7 @@ export async function handler(event) {
     return {
       ...policy,
       context: claims
-    }
+    };
   } catch (error) {
     console.log(error);
     throw 'Unauthorized';
