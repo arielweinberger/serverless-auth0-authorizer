@@ -4,7 +4,7 @@
   <a href="https://codingly.io">codingly.io</a>
   <br/>
 </p>
-<h1 align="center">Codingly Auth0 Auth Service</h1>
+<h1 align="center">Serverless Framework Auth0 Authorizer</h1>
 <p align="center">
   <i><strong>A modern, ES6-friendly Lambda Authorizer ready for integration with Serverless Framework and Auth0.</strong></i>
   <br/>
