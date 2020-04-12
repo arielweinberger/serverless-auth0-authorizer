@@ -12,7 +12,7 @@ const generatePolicy = (principalId, resource) => {
         {
           Action: 'execute-api:Invoke',
           Effect: 'Allow',
-          Resource: resource,
+          Resource: '*',
         },
       ],
     },
