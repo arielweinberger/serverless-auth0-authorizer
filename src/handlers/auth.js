@@ -1,9 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID;
-const AUTH0_CLIENT_PUBLIC_KEY = process.env.AUTH0_CLIENT_PUBLIC_KEY;
-
-const generatePolicy = (principalId, resource) => {
+const generatePolicy = principalId => {
   return {
     principalId,
     policyDocument: {
@@ -27,8 +24,9 @@ export async function handler(event) {
   const token = event.authorizationToken.replace('Bearer ', '');
 
   try {
-    const claims = await jwt.verify(token, AUTH0_CLIENT_PUBLIC_KEY, { audience: AUTH0_CLIENT_ID });
+    const claims = await jwt.verify(token, process.env.AUTH0_PUBLIC_KEY);
     const policy = generatePolicy(claims.sub, event.methodArn);
+
     return {
       ...policy,
       context: claims

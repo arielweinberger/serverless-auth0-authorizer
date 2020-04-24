@@ -26,12 +26,11 @@
 npm install
 ```
 
-### 2. Create `secrets.yml` file
+### 2. Create `secret.pem` file
 
-This file will contain your Auth0 credentials.
+This file will contain your Auth0 public certificate, used to verify tokens.
 
-Create a `secrets.yml` file in the root folder of this project.
-For an example, take a look at [secrets.example.yml](secrets.example.yml).
+Create a `secret.pem` file in the root folder of this project. Simply paste your public certificate in there.
 
 ### 3. Deploy the stack
 
@@ -41,26 +40,11 @@ We need to deploy the stack in order to consume the private/public testing endpo
 sls deploy -v
 ```
 
-Note down the outputs for the next step.
-
-### 4. Demo front-end
-
-You can use the demo front-end application to the service and retrieve a token for usage with Postman.
-
-Edit [frontend/index.html](frontend/index.html) and provide the following values:
-
-- `AUTH0_CLIENT_ID`: Auth0 application ID (same value as in `secrets.yml`)
-- `AUTH0_DOMAIN`: Auth0 application domain
-- `PUBLIC_ENDPOINT`: Public test endpoint URL (`sls info`)
-- `PRIVATE_ENDPOINT`: Private test endpoint URL (`sls info`)
-
-Now you can open up [frontend/index.html](frontend/index.html) in your web browser and log in.
-After logging in, you will be able to find your `id_token` JSON Web Token for usage when authorizing.
-
 ### 5. Final test
 
-To make sure everythign works, send a POST request (using curl, Postman etc.) to your private endpoint.
-Make sure to provide your token in the headers like so:
+To make sure everything works, send a POST request (using curl, Postman etc.) to your private endpoint.
+
+You can grab a test token from Auth0. Make sure to provide your token in the headers like so:
 
 ```
 "Authorization": "Bearer YOUR_TOKEN"
