@@ -20,19 +20,25 @@
 
 ## Getting started
 
-### 1. Install dependencies
+### 1. Clone the repository (or generate a serverless project)
+```sh
+sls create --name auth-service --template-url https://github.com/codingly-io/serverless-auth0-authorizer
+cd auth-service
+```
+
+### 2. Install dependencies
 
 ```sh
 npm install
 ```
 
-### 2. Create `secret.pem` file
+### 3. Create `secret.pem` file
 
 This file will contain your Auth0 public certificate, used to verify tokens.
 
 Create a `secret.pem` file in the root folder of this project. Simply paste your public certificate in there.
 
-### 3. Deploy the stack
+### 4. Deploy the stack
 
 We need to deploy the stack in order to consume the private/public testing endpoints.
 
