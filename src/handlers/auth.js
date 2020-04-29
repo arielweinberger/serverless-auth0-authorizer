@@ -5,8 +5,6 @@ import jwt from 'jsonwebtoken';
 // request is coming from, thus being efficient and optimising costs.
 const generatePolicy = (principalId, methodArn) => {
   const apiGatewayWildcard = methodArn.split('/', 2).join('/') + '/*';
-  console.log('methodArn', methodArn);
-  console.log('apiGatewayWildcard', apiGatewayWildcard);
 
   return {
     principalId,
@@ -16,7 +14,7 @@ const generatePolicy = (principalId, methodArn) => {
         {
           Action: 'execute-api:Invoke',
           Effect: 'Allow',
-          Resource: '*',
+          Resource: apiGatewayWildcard,
         },
       ],
     },
