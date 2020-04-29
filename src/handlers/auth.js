@@ -16,7 +16,7 @@ const generatePolicy = principalId => {
   };
 };
 
-export async function handler(event) {
+export function handler(event) {
   if (!event.authorizationToken) {
     throw 'Unauthorized';
   }
